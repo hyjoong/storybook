@@ -13,7 +13,8 @@
     "analyze": "ANALYZE=true next build",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=d82a0bca6e37"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^10.0.7",
@@ -56,6 +57,7 @@
     "@typescript-eslint/parser": "^4.14.1",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
+    "chromatic": "^6.5.3",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.1.0",
