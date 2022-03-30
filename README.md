@@ -37,3 +37,17 @@ module.exports = {
 #### preview.js
 
 해당 프로젝트의 모든 Story에 global하게 적용될 포맷을 세팅하는 곳
+
+---
+
+### Layout
+
+BaseLayout의 BaseLayoutMain css 속성을
+
+```
+  min-height: calc(100vh - 128px);
+```
+
+으로 설정했는데 `-128px` 을 한 이유는 `position:fixed`인 Header의 띄우기 위해서 `Root`에 설정한 `padding-top: 4rem;`과 메인 컴포넌트에서 `padding: 2rem 1rem;`의 값인 위 아래 padding값인 `64px` 값을 더한 64+64 = 128px 값이다
+
+그냥 100vh값을 준다면 padding값 때문에 스크롤이 생긴다

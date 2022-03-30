@@ -1,12 +1,14 @@
 import TodoList from "../components/TodoList";
 import TodoForm from "../components/TodoForm";
 import styled from "styled-components";
+import BaseLayout from "components/BaseLayout/BaseLayout";
+
 const Index = () => {
   return (
-    <Root>
+    <BaseLayout>
       <TodoForm />
       <TodoList />
-    </Root>
+    </BaseLayout>
   );
 };
 
