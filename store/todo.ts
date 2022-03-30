@@ -11,6 +11,7 @@ interface Todo {
   currentId: number;
   addTodo: (content: string) => void;
   removeTodo: (id: number) => void;
+  checkTodo: (id: number) => void;
 }
 
 export const todo = observable<Todo>({
@@ -25,6 +26,13 @@ export const todo = observable<Todo>({
     const index = this.todoData.findIndex((v) => v.id === id);
     if (id !== -1) {
       this.todoData.splice(index, 1);
+    }
+  },
+
+  checkTodo(id) {
+    const index = this.todoData.findIndex((v) => v.id === id);
+    if (id !== -1) {
+      !this.todoData[index].checked;
     }
   },
 });
