@@ -38,6 +38,62 @@ module.exports = {
 
 해당 프로젝트의 모든 Story에 global하게 적용될 포맷을 세팅하는 곳
 
+```javascript
+export const parameters = {
+  actions: { argTypesRegex: "^on.*" },
+};
+```
+
+, Global 하게 argType에 on 으로 시작하는 이벤트 핸들러 함수들을 모두 허용하는 정규식을 적어주면, Action 탭에서 이벤트가 발생하는 것을 감지할 수 있다
+
+#### Decorator
+
+- 기능적으로 추가적인 렌더링을 통해 감쌀 수 있는 방법
+
+주로 `두 가지` 경우에 사용이 된다.
+
+1. 추가적으로 컴포넌트를 새로운 마크업으로 감싸기 위해 사용
+
+```javascript
+export default {
+  component: MyComponent,
+  decorators: [
+    (Story) => (
+      <div style={{ margin: "1rem" }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+```
+
+#### export default
+
+import MyComponent from './MyComponent';
+
+```javascript
+export default {
+  title: 'components/commons/CheckBox',
+  component: MyComponent,
+  decorators: [ ... ],
+  parameters: { ... }
+}
+
+const Template = (args: Props) => <MyComponent {...args} />;
+
+(Default as any).args = {
+  labelText: '라벨 텍스트',
+};
+
+
+```
+
+`export default` { } 를 활용하여 어떤 컴포넌트의 Story인지, 그리고 어떤 설정으로 렌더링 할지를 정의합니다.
+
+`Template.bind({})` 구문을 통해 만들어진 `Template` 이라는 기본적인 틀, 즉 템플릿을 만들면 거기에 args를 할당할 수 있게 되고,
+
+Template로 만든 story에 args만 다르게 해서 여러개의 story를 렌더링 할 수 있다.
+
 ---
 
 ### Layout
